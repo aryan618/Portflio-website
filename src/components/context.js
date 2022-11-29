@@ -10,6 +10,7 @@ import img8 from "../assests/react.png";
 import img11 from "../assests/mysql.png";
 import img9 from "../assests/python.png";
 import img10 from "../assests/flask.png";
+import axios from "axios";
 
 const Context = React.createContext();
 export class Provider extends Component {
@@ -31,7 +32,8 @@ export class Provider extends Component {
     stacks: [
       {
         id: 1,
-        title: "He is a good engineer",
+        title:
+          "He is a good engineer, He is very passionate about his career and job, he is ambitious too",
         excerpt: "Random guy 1",
         company: "CEO at ABC company",
       },
@@ -135,7 +137,60 @@ export class Provider extends Component {
       },
     ],
   };
-
+  async componentDidMount() {
+    const [
+      responses_recommendations,
+      responses_skills,
+      responses_projects,
+    ] = await Promise.all([
+      axios.get("http://127.0.0.1:9000/api/recommendations"),
+      axios.get("http://127.0.0.1:9000/api/skills"),
+      axios.get("http://127.0.0.1:9000/api/projects"),
+    ]);
+    const newState = {};
+    if (
+      responses_recommendations.data.isSuccessful &&
+      responses_recommendations.data.results.length != 0
+    ) {
+      newState.stacks = responses_recommendations.data.results;
+    }
+    if (
+      responses_skills.data.isSuccessful &&
+      responses_skills.data.results.length != 0
+    ) {
+      newState.skills = responses_skills.data.results;
+    }
+    if (
+      responses_projects.data.isSuccessful &&
+      responses_projects.data.results.length != 0
+    ) {
+      newState.projects = responses_projects.data.results;
+    }
+    this.setState(newState);
+    // let responses = await axios.get(
+    //   "http://127.0.0.1:9000/api/recommendations"
+    // );
+    // console.log(responses);
+    // if (responses.data.isSuccessful) {
+    //   this.setState({
+    //     stacks: responses.data.results,
+    //   });
+    // }
+    // responses = await axios.get("http://127.0.0.1:9000/api/skills");
+    // console.log(responses);
+    // if (responses.data.isSuccessful) {
+    //   this.setState({
+    //     skills: responses.data.results,
+    //   });
+    // }
+    // responses = await axios.get("http://127.0.0.1:9000/api/projects");
+    // console.log(responses);
+    // if (responses.data.isSuccessful) {
+    //   this.setState({
+    //     projects: responses.data.results,
+    //   });
+    // }
+  }
   render() {
     return (
       <Context.Provider value={this.state}>

@@ -3,6 +3,7 @@ import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 import { Consumer } from "./context";
 import { v4 as uuid } from "uuid";
+import axios from "axios";
 class AddProject extends Component {
   state = {
     url: "",
@@ -17,15 +18,8 @@ class AddProject extends Component {
       [event.target.name]: event.target.value,
     });
   };
-  onSubmit = (statechangehandler, event) => {
+  onSubmit = async (statechangehandler, event) => {
     event.preventDefault();
-    let isSuccessful = true;
-    if (isSuccessful) {
-      this.setState({
-        submitMessage: `Published successfully, enjoy`,
-        submitMessagetextColour: "text-info",
-      });
-    }
     const newProject = {
       id: uuid(),
       title: this.state.title,
@@ -33,6 +27,18 @@ class AddProject extends Component {
       excerpt: this.state.excerpt,
       body: this.state.body,
     };
+    const responses = await axios.post(
+      "http://127.0.0.1:9000/api/project",
+      newProject
+    );
+    const isSuccessful = responses.data.isSuccessful;
+    if (isSuccessful) {
+      this.setState({
+        submitMessage: `Published successfully, enjoy`,
+        submitMessagetextColour: "text-info",
+      });
+    }
+
     statechangehandler("ADD_PROJECT", newProject);
   };
   onBodyChange = (value) => {
