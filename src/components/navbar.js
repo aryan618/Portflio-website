@@ -5,7 +5,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-md fixed-top bg-white">
       <div className="container my-2">
         <Link to="/" className="navbar-brand text-dark font-weight-bold">
-          ARYAN KUMAR SINGH
+          ARYAN KUMAR SING
         </Link>
         <Link to="/contact" className="ml-auto">
           <button className="btn btn-outline-info ">Contact me</button>
