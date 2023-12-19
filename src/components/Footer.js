@@ -57,7 +57,7 @@ function Footer() {
         </div>
       </div>
       <div className="text-muted py-3">
-        <p>Copyright © ARYAN KUMAR SINGH 2022</p>
+        <p>Copyright © ARYAN KUMAR SINGH 2023</p>
       </div>
     </div>
   );
