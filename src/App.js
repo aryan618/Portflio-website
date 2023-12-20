@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/">
             <Title
               name="Aryan Kumar Singh"
-              leadtext="I am a freelancer from India"
+              leadtext="I am a Software developer from India"
             />
             <RecommendationStack />
             <SkillsStack />
