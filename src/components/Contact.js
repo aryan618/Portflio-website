@@ -22,7 +22,7 @@ class Contact extends Component {
     const { name } = this.state;
     if (isSuccessful) {
       this.setState({
-        submitMessage: `Thank you ${name} da for contacting me Chill out`,
+        submitMessage: `Thank you ${name}  for contacting I'll definitely get back to you.`,
         submitMessageColour: "text-info",
       });
     }
@@ -57,7 +57,7 @@ class Contact extends Component {
               </div>
               <div className="form-group">
                 <label htmlFor="description">
-                  Tell me about your project *
+                  Message *
                 </label>
                 <textarea
                   className="form-control"
@@ -72,7 +72,7 @@ class Contact extends Component {
                 className="bn btn-dark float-right "
                 style={{ backgroundColor: "black" }}
               >
-                Let's talk business
+                Let's talk
               </button>
             </form>
           </div>
