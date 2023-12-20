@@ -19,7 +19,7 @@ function Skills(props) {
               className="rounded-circle"
               src={imageUrl}
               alt="test img"
-              style={{width: "100px", height: "100px"}}
+              style={{width: "130px", height: "110px"}}
             />
             <div>
               {star}

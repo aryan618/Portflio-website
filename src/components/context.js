@@ -9,8 +9,12 @@ import img6 from "../assests/javascript.png";
 import img7 from "../assests/bootstrap4.png";
 import img8 from "../assests/react.png";
 import img11 from "../assests/mysql.png";
-import img9 from "../assests/python.png";
-import img10 from "../assests/flask.png";
+import img9 from "../assests/node.png";
+import img10 from "../assests/express.png";
+import mongo from "../assests/mongo.png";
+import docker from "../assests/docker.png";
+import kuberenetes from "../assests/Kubernetes.jpeg";
+import gitops from "../assests/gitops.png";
 import axios from "axios";
 
 const Context = React.createContext();
@@ -74,7 +78,7 @@ export class Provider extends Component {
         id: 3,
         imageUrl: img6,
         totalstars: 3,
-        greystars: 1,
+        greystars: 2,
       },
       {
         id: 4,
@@ -103,6 +107,30 @@ export class Provider extends Component {
       {
         id: 8,
         imageUrl: img11,
+        totalstars: 3,
+        greystars: 1,
+      },
+      {
+        id: 9,
+        imageUrl: mongo,
+        totalstars: 3,
+        greystars: 1,
+      },
+      {
+        id: 10,
+        imageUrl: docker,
+        totalstars: 3,
+        greystars: 1,
+      },
+      {
+        id: 11,
+        imageUrl: kuberenetes,
+        totalstars: 3,
+        greystars: 1,
+      },
+      {
+        id: 12,
+        imageUrl: gitops,
         totalstars: 3,
         greystars: 1,
       },
