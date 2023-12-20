@@ -45,13 +45,13 @@ function Footer() {
         </div>
         <div className="col-12 col-md-4 py-3">
           <h5 className="text-info pb-3">Social</h5>
-          <a href="https://www.linkedin.com/in/aryan-kumar-singh-85b064203/">
+          <a href="https://www.linkedin.com/in/aryan-kumar-singh-85b064203/" target="_blank">
             <i className="fab fa-linkedin text-light h1 d-block"></i>
           </a>
-          <a href="https://github.com/aryan618">
+          <a href="https://github.com/aryan618" target="_blank">
             <i className="fab fa-github text-light h1 d-block"></i>
           </a>
-          <a href="/">
+          <a href="/" target="_blank">
             <i className="fas fa-envelope text-light h1 d-block"></i>
           </a>
         </div>

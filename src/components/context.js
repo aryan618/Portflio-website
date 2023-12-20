@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import img1 from "../assests/free-stock-image-1.jpg";
-import img2 from "../assests/free-stock-image-2.jpg";
-import img3 from "../assests/free-stock-image-3.jpg";
+import img1 from "../assests/img1.jpg";
+import img2 from "../assests/img2.jpg";
+import img3 from "../assests/img3.jpg";
+import immg4 from "../assests/free-stock-image-1.jpg";
 import img4 from "../assests/html5.png";
 import img5 from "../assests/css3.png";
 import img6 from "../assests/javascript.png";
@@ -109,31 +110,43 @@ export class Provider extends Component {
     projects: [
       {
         id: 1,
-        title: "Project 1",
+        title: "SRM Insights",
         imageurl: img1,
-        excerpt: "This is my project about....",
-        body: "body1",
+        excerpt: "SRM Insights: Your platform for sharing, discussing, and tracking college experiences, interview insights, and personalized reviews",
+        body: "SRM Insights is a platform dedicated to enhancing the college experience for students. It provides a space for students to share interview experiences, offer reviews on the college environment, and engage in insightful discussions. Each student has a personalized account to keep track of their contributions and reviews. The platform aims to create a collaborative community where students can benefit from shared knowledge and experiences. Built on the MERN (MongoDB, Express.js, React.js, Node.js) stack, SRM Insights ensures a modern and user-friendly interface, promoting seamless interactions and scalability.",
+        link: "https://frontend-in.vercel.app/",
+        frontendGithub: "https://github.com/aryan618/Frontend-in",
+        backendGithub: "https://github.com/aryan618/Backend-in"
       },
       {
         id: 2,
-        title: "Project 2",
+        title: "Video Chat Application",
         imageurl: img2,
-        excerpt: "This is my project about....",
-        body: "body1",
+        excerpt: "Implementation of a robust video chat application",
+        body: "I spearheaded the development of a cutting-edge video chat application, optimizing performance through a robust tech stack. Leveraging Node.js and Express on the backend, the implementation included Socket.io for streamlined WebSocket communication, leading to a remarkable 30% reduction in server response time. The application further embraced WebRTC technology to facilitate seamless real-time audio and video communication. This project not only showcases my proficiency in backend development but also highlights my commitment to enhancing user experience and system efficiency.",
+        link: "https://6550127c8de2e11247ae6c66--shiny-torte-9c092c.netlify.app/",
+        frontendGithub: "https://github.com/aryan618/client-Video-Chat-App",
+        backendGithub: "https://github.com/aryan618/server-video-chat-app"
       },
       {
         id: 3,
-        title: "Project 3",
+        title: "Cryptocurrency Finance Price Tracker App",
         imageurl: img3,
-        excerpt: "This is my project about....",
-        body: "body1",
+        excerpt: "React-based Crypto Price Tracker with powerful search functionality.",
+        body: "I developed a Cryptocurrency Finance Price Tracker App using React.js, featuring hooks and Axios for streamlined API management. This application serves as an intuitive tool for real-time tracking of cryptocurrency prices, offering users a robust search functionality. The use of React.js ensures a responsive interface, while the incorporation of hooks enhances state management, contributing to a smooth user experience. This project showcases my expertise in frontend development and creating functional applications tailored to the dynamic nature of cryptocurrency markets.",
+        link: "https://react-api-crypto-tracker-v1.vercel.app/",
+        frontendGithub: "https://github.com/aryan618/react-api-crypto-tracker-v1",
+        backendGithub: ""
       },
       {
         id: 4,
         title: "Project 4",
-        imageurl: img3,
+        imageurl: immg4,
         excerpt: "This is my project about....",
-        body: "body1",
+        body: "body4",
+        link: "",
+        frontendGithub: "",
+        backendGithub: ""
       },
     ],
   };

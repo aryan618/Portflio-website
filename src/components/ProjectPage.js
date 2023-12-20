@@ -1,43 +1,76 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { Consumer } from "./context";
 
 class ProjectPage extends Component {
-  state = {
-    imageurl: "",
-    title: "",
-    body: "",
-  };
-
-  async componentDidMount() {
-    const responses = await axios(
-      `http://127.0.0.1:9000/api/projectt?id=${this.props.match.params.id}`
-    );
-    const isSuccessful = responses.data.isSuccessful;
-    if (isSuccessful) {
-      this.setState({
-        imageurl: responses.data.results.imageurl,
-        title: responses.data.results.title,
-        body: responses.data.results.body,
-      });
-    }
-  }
   render() {
-    // const { projects } = value;
-    // const id = this.props.match.params.id;
-    // console.log(id);
-    // const project = projects.filter((project) => project.id == id)[0];
-    // console.log(project);
-    const { imageurl, title, body } = this.state;
+    const id = this.props.match.params.id;
+
     return (
-      <div className="col-12 text-center">
-        <div className="justify-content-center">
-          <img src={imageurl} alt={title} className="img-fluid" />
-        </div>
-        <div className="text-center">
-          <h1>{title}</h1>
-        </div>
-        <div>{body}</div>
-      </div>
+      <Consumer>
+        {(value) => {
+          const { projects } = value;
+          const project = projects.find((project) => project.id == id);
+
+          if (!project) {
+            // Handle case when project with the specified id is not found
+            return <div>Project not found</div>;
+          }
+
+          const { imageurl, title, body,link,frontendGithub,backendGithub } = project;
+          //const link="https://frontend-in.vercel.app/"
+          return (
+            <div className="col-12 text-center">
+              <div className="justify-content-center" style={{ marginTop: "70px", marginBottom: "30px" }}>
+                <img src={imageurl} alt={title} className="img-fluid img-responsive" style={{ maxWidth: "60%" }} />
+              </div>
+              <div className="text-center">
+                <h1>{title}</h1>
+              </div>
+              <div style={{ padding: "20px", margin: "0 auto", maxWidth: "70%" }}>
+                {/* Center the body paragraph with proper alignment */}
+                <p className="text-center">{body}</p>
+              </div>
+              <div style={{ padding: "10px 0" }}>
+
+                {
+                    link && (
+                      <a href={link} target="_blank" rel="noopener noreferrer">
+                    
+                    <button className="btn btn-primary">
+                       View Project
+                    </button>
+                  </a>
+                    )
+                  }
+                  {
+                    frontendGithub && (
+                      <a href={frontendGithub} target="_blank" rel="noopener noreferrer">
+                    
+                    <button className="btn btn-dark ml-2">
+                      <i className="fab fa-github"> Frontend</i> 
+                    </button>
+                  </a>
+                    )
+                  }
+                  {
+                    backendGithub && (
+                      <a href={backendGithub} target="_blank" rel="noopener noreferrer">
+                    
+                    <button className="btn btn-dark ml-2">
+                      <i className="fab fa-github"> Backend</i> 
+                    </button>
+                  </a>
+                    )
+                  }
+                  
+              </div>
+              <div>
+              
+              </div>
+            </div>
+          );
+        }}
+      </Consumer>
     );
   }
 }
